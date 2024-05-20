@@ -25,13 +25,6 @@ jobs:
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/hello-world1:latest
 
-    # - name: 'Deploy to Azure Web App'
-    #   uses: azure/webapps-deploy@v2
-    #   with:
-    #     app-name: 'hello-world1'
-    #     slot-name: 'production'
-    #     images: 'myusername/myapp:latest'
-
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
