@@ -32,6 +32,10 @@ jobs:
         docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest .
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest
 
+    - name: Set environment variables
+      run: |
+        az webapp config appsettings set --name 'hello-world1' --resource-group 'test-deploy' --settings AZ_ACCESS_KEY=${{ secrets.AZ_ACCESS_KEY }} 
+
     # Deploy the Docker image from ACR to Azure Web App
     - name: Azure Web App deploy
       uses: azure/webapps-deploy@v2
