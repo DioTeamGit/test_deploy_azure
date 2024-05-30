@@ -37,7 +37,7 @@ def list_all_buckets(
     conn_string: str = os.environ.get("AZ_ACCESS_KEY"),
     client: Optional[BlobServiceClient] = None
 ) -> List[str]:
-
+ 
     blob_service_client = __check_not_client(conn_string=conn_string, client=client)
 
     return blob_service_client.list_containers()
