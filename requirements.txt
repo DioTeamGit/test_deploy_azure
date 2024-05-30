@@ -1,1 +1,6 @@
 flask
+azure-storage-blob
+python-dotenv
+scikit-learn
+seaborn
+pandas
