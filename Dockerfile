@@ -1,28 +1,10 @@
-FROM python:3.9-alpine
+FROM python:3.9-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY . /app
-
-RUN apk add --no-cache \
-    build-base \
-    libffi-dev \
-    gcc \
-    gfortran \
-    musl-dev \
-    linux-headers \
-    g++ \
-    openblas-dev \
-    python3-dev \
-    freetype-dev \
-    lapack-dev \
-    make
-
-# Install pip
-RUN python -m ensurepip
-RUN pip install --no-cache --upgrade pip
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
