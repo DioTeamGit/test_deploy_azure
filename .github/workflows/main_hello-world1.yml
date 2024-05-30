@@ -34,6 +34,7 @@ jobs:
 
     - name: Set environment variables
       run: |
+        az login
         az webapp config appsettings set --name 'hello-world1' --resource-group 'test-deploy' --settings AZ_ACCESS_KEY=${{ secrets.AZ_ACCESS_KEY }} 
 
     # Deploy the Docker image from ACR to Azure Web App
