@@ -9,7 +9,6 @@ from sklearn.datasets import load_iris
 from flask import render_template_string
 
 from src.constants import DATA_PATH
-from src.make_bucket import list_all_blobs
 
 
 def import_and_save_iris(path: str = DATA_PATH):
@@ -63,5 +62,3 @@ def plot_iris_dataset_gui(df: pd.DataFrame):
     </html>
     """
     return render_template_string(html_template, plot_url=plot_url)
-
-    # return fig
