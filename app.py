@@ -1,16 +1,23 @@
 import logging
+import os
 
 from flask import Flask, jsonify
+from dotenv import load_dotenv, find_dotenv
 
-from src.make_bucket import push_to_container, read_blob_from_azure_to_dataframe
+from src.make_bucket import (
+    push_to_container, 
+    read_blob_from_azure_to_dataframe, 
+    list_all_blobs
+)
 from src.plotting import import_and_save_iris, plot_iris_dataset_gui
+from src.constants import CONTAINER_NAME
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 # Add this to your Flask app
 app.logger.setLevel(logging.DEBUG)
-
+_ = load_dotenv(find_dotenv())
 
 def save_iris_and_upload():
     _ = import_and_save_iris()
@@ -19,7 +26,12 @@ def save_iris_and_upload():
 
 @app.route('/')
 def hello_world():
-    _ = save_iris_and_upload()
+    if not "iris.csv" in list_all_blobs(
+          conn_string=os.environ.get("AZ_ACCESS_KEY"), 
+          container_name=CONTAINER_NAME
+    ):
+        _ = save_iris_and_upload()
+
     df = read_blob_from_azure_to_dataframe()
     rend = plot_iris_dataset_gui(df)
     return rend
