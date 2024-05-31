@@ -1,7 +1,6 @@
 import os
 import logging
 
-
 from dotenv import find_dotenv, load_dotenv
 from src.make_bucket import list_all_blobs
 from src.constants import BLOB_NAME
@@ -20,6 +19,7 @@ def test_az_key_in_env():
     az_key = os.environ.get("AZ_ACCESS_KEY", "not found")
     assert az_key != "not found"
     assert az_key is not None
+    assert len(az_key) != 0
 
 
 def test_blob_in_bucket():
