@@ -6,7 +6,7 @@ from io import StringIO
 import pandas as pd
 from dotenv import load_dotenv, find_dotenv
 from azure.storage.blob import BlobServiceClient
-from .constants import CONTAINER_NAME, BLOB_NAME
+from src.constants import CONTAINER_NAME, BLOB_NAME
 
 _ = load_dotenv(find_dotenv())
 

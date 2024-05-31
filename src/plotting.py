@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from flask import render_template_string
 
-from .constants import DATA_PATH
-from .make_bucket import list_all_blobs
+from src.constants import DATA_PATH
+from src.make_bucket import list_all_blobs
 
 
 def import_and_save_iris(path: str = DATA_PATH):
