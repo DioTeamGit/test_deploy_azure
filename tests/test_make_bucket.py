@@ -13,4 +13,9 @@ def test_az_key_in_env():
 
 
 def test_blob_in_bucket():
-    assert BLOB_NAME in list_all_blobs()
+    try:
+        assert BLOB_NAME in list_all_blobs()
+
+    except AssertionError as e:
+        print(os.environ.get("AZ_ACCESS_KEY", "not found"))
+        raise e
