@@ -6,6 +6,11 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+ARG AZ_ACCESS_KEY
+
+# Define run-time environment variable
+ENV AZ_ACCESS_KEY=$AZ_ACCESS_KEY
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade setuptools pip
 RUN pip install -e .
