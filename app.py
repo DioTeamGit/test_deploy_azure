@@ -1,16 +1,16 @@
 # import logging
-import os
+# import os
 
 from flask import Flask
-from azure.storage.blob import BlobServiceClient
-from dotenv import load_dotenv, find_dotenv
+# from azure.storage.blob import BlobServiceClient
+# from dotenv import load_dotenv, find_dotenv
 
-from src.make_bucket import (
-#     push_to_container, 
-    read_blob_from_azure_to_dataframe, 
-    list_all_blobs
-)
-from src.plotting import import_and_save_iris, plot_iris_dataset_gui
+# from src.make_bucket import (
+# #     push_to_container, 
+#     read_blob_from_azure_to_dataframe, 
+#     list_all_blobs
+# )
+# from src.plotting import import_and_save_iris, plot_iris_dataset_gui
 # from src.constants import CONTAINER_NAME#, BLOB_NAME
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 # # Add this to your Flask app
 # app.logger.setLevel(logging.DEBUG)
-_ = load_dotenv(find_dotenv())
+# _ = load_dotenv(find_dotenv())
 
 # def save_iris_and_upload():
 #     _ = import_and_save_iris()
@@ -44,11 +44,12 @@ def hello_world():
     # except Exception as e:
     #     string = f"Found exception: {e.with_traceback()}"
     #     return string + " " + blob_service_client.__str__()
-    df = read_blob_from_azure_to_dataframe()
-    rend = plot_iris_dataset_gui(df)
+    # df = read_blob_from_azure_to_dataframe()
+    # rend = plot_iris_dataset_gui(df)
     # return rend
     # string = "Blob Found" if blob_service_client is not None else "Blob not Found"
-    return rend #string.to_html() #+ " " + blob_service_client.__str__()
+    # return rend #string.to_html() #+ " " + blob_service_client.__str__()
+    return "Juve Merda"
 
 
 # @app.errorhandler(500)
