@@ -1,8 +1,8 @@
 # import logging
-# import os
+import os
 
 from flask import Flask
-# from azure.storage.blob import BlobServiceClient
+from azure.storage.blob import BlobServiceClient
 # from dotenv import load_dotenv, find_dotenv
 
 # from src.make_bucket import (
@@ -37,19 +37,19 @@ def hello_world():
     # else:
     #     string = "Juve Merda"
 
-    # conn_string=os.environ.get("AZ_ACCESS_KEY")
-    # try:
-    #     blob_service_client = BlobServiceClient.from_connection_string(conn_string)
+    conn_string=os.environ.get("AZ_ACCESS_KEY")
+    try:
+        blob_service_client = BlobServiceClient.from_connection_string(conn_string)
 
-    # except Exception as e:
-    #     string = f"Found exception: {e.with_traceback()}"
-    #     return string + " " + blob_service_client.__str__()
+    except Exception as e:
+        string = f"Found exception: {e.with_traceback()}"
+        return string + " " + blob_service_client.__str__()
     # df = read_blob_from_azure_to_dataframe()
     # rend = plot_iris_dataset_gui(df)
     # return rend
-    # string = "Blob Found" if blob_service_client is not None else "Blob not Found"
-    # return rend #string.to_html() #+ " " + blob_service_client.__str__()
-    return "Juve Merda"
+    string = "Blob Found" if blob_service_client is not None else "Blob not Found"
+    return string + " " + blob_service_client.__str__()
+    # return "Juve Merda"
 
 
 # @app.errorhandler(500)

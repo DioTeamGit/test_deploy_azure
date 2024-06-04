@@ -31,7 +31,7 @@ jobs:
     # Build and push Docker image to Azure Container Registry
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest . 
+        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest . --build-arg AZ_ACCESS_KEY=${{ secrets.AZ_ACCESS_KEY }}
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest
 
     # Deploy the Docker image from ACR to Azure Web App
