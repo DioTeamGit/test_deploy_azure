@@ -3,7 +3,8 @@ name: Build and deploy Python app to Azure Web App
 on:
   push:
     branches:
-      - main
+      # - main
+      - debugging_1
 
 jobs:
 

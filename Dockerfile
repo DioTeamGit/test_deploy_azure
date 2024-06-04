@@ -14,6 +14,7 @@ ENV AZ_ACCESS_KEY=${AZ_ACCESS_KEY}
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade setuptools pip
 RUN pip install -e .
+# RUN pip install --no-cache-dir -r requirements.txt
 
 RUN pytest
 
@@ -22,7 +23,7 @@ EXPOSE 80
 
 # Define environment variable
 ENV FLASK_APP=app.py
-ENV FLASK_ENV=development
+# ENV FLASK_ENV=development
 
 
 # Run app.py when the container launches
