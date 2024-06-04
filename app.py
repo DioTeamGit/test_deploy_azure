@@ -17,6 +17,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Add this to your Flask app
 app.logger.setLevel(logging.DEBUG)
+
 _ = load_dotenv(find_dotenv())
 
 def save_iris_and_upload():
