@@ -20,6 +20,7 @@ def test_az_key_in_env():
     assert az_key != "not found"
     assert az_key is not None
     assert len(az_key) != 0
+    assert "AccountName" in az_key
 
 
 def test_blob_in_bucket():

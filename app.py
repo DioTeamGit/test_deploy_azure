@@ -1,5 +1,6 @@
 # import logging
 import os
+import sys
 
 from flask import Flask
 from azure.storage.blob import BlobServiceClient
@@ -42,8 +43,9 @@ def hello_world():
         blob_service_client = BlobServiceClient.from_connection_string(conn_string)
 
     except Exception as e:
-        string = f"Found exception: {e.with_traceback()}"
-        return string + " " + blob_service_client.__str__()
+        tb = sys.exception().__traceback__
+        string = f"Found exception: {e.with_traceback(tb)}"
+        return string
     # df = read_blob_from_azure_to_dataframe()
     # rend = plot_iris_dataset_gui(df)
     # return rend
