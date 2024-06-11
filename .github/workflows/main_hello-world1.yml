@@ -34,7 +34,7 @@ jobs:
         DATE_TAG=$(date +"%Y%m%d_%H%M%S")
         REGISTRY=${{ secrets.ACR_REGISTRY }}
         docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest . --build-arg AZ_ACCESS_KEY=${{ secrets.AZ_ACCESS_KEY }}
-        docker tag hello-world1:latest REGISTRY.azurecr.io/hello-world1:DATE_TAG
+        docker tag ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:latest REGISTRY.azurecr.io/hello-world1:DATE_TAG
         docker push ${{ secrets.ACR_LOGIN_SERVER }}/hello-world1:DATE_TAG
 
     # Deploy the Docker image from ACR to Azure Web App
