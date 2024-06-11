@@ -41,7 +41,7 @@ def hello_world():
     conn_string=os.environ.get("AZ_ACCESS_KEY")
     try:
         blob_service_client = BlobServiceClient.from_connection_string(conn_string)
-
+        
     except Exception as e:
         tb = sys.exception().__traceback__
         string = f"Found exception: {e.with_traceback(tb)}"
