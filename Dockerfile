@@ -22,7 +22,6 @@ EXPOSE 80
 
 # Define environment variable
 ENV FLASK_APP=app.py
-RUN echo ${AZ_ACCESS_KEY}
 # ENV FLASK_ENV=development
 
 RUN echo ${AZ_ACCESS_KEY}
